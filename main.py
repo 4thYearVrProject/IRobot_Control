@@ -26,9 +26,6 @@ def main():
         elif direction == "right180":
             robot.turn_backwards_CCW()
             robot.stop()
-        else:
-            print("Invalid input, try again")
-    
     
 
 if __name__ == "__main__":
