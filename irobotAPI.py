@@ -45,13 +45,13 @@ class Irobot();
             #if 1s = 0.5m, then t = 2*d
             time.sleep(distance*2)
 
-    #Turn left 90 degrees    
+    #Turn left 90 degrees (CW)   
     def Turn_left(self, distance):
         if(self.init):
             self.bot.drive_direct(180,-180)
             time.sleep(1)
 
-    #Turn right 90 degrees    
+    #Turn right 90 degrees (CCW)    
     def Turn_right(self, distance):
         if(self.init):
             self.bot.drive_direct(-180,180)
