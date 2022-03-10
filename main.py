@@ -7,12 +7,15 @@ def main():
     while robot.init == True:
         # Movement controls
         direction = input("Please enter direction (options include 'forward', 'backward', 'left', right', 'left180' and 'right180')\n-->")
+        
 
         if direction == "forward":
-            robot.Drive_forward(1)
+            distance = float(input("Please enter a distance to travel in meters \n-->"))
+            robot.Drive_forward(distance)
             robot.stop()
         elif direction == "backward":
-            robot.Drive_backward(1)
+            distance = float(input("Please enter a distance to travel in meters \n-->"))
+            robot.Drive_backward(distance)
             robot.stop()
         elif direction == "left":
             robot.Turn_left()

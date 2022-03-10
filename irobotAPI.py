@@ -36,15 +36,15 @@ class Irobot():
     def Drive_forward(self, distance):
         if(self.init):
             self.bot.drive_direct(100,100)
-            #if 1s = 0.5 m, then t = 2*d
-            time.sleep(distance*2) # modify 2 later
+            #For motoer speed of 100, 100 -> 12 cm/s
+            time.sleep(distance/0.12) # modify 2 later
 
     #Drive backward by a specified distance
     def Drive_backward(self, distance):
         if(self.init):
             self.bot.drive_direct(-100,-100)
             #if 1s = 0.5m, then t = 2*d
-            time.sleep(distance*2)
+            time.sleep(distance/0.12) # distance is in meters
 
     #Turn left 90 degrees (CW)   
     def Turn_left(self):
