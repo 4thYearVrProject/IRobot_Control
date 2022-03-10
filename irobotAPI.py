@@ -13,6 +13,7 @@ class Irobot():
         self.bot = Create2(self.port)
         # Start the Create 2
         self.bot.start()
+        self.bot.full()
         self.init = True
         print("Robot started")
 
