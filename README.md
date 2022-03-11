@@ -39,6 +39,7 @@ cd by-path
 Finally, run
 ```bash
 ls -al
+```
 The serial port should be listed at the end of the file path
 
 Replace the "ttyUSB0" in main.py with your serial port address
