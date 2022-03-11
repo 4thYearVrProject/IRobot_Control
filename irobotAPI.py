@@ -1,13 +1,17 @@
 from  pycreate2 import Create2
 import time
 
+from sqlalchemy import false
+
 class Irobot():
+    #Initialize the robot
     def __init__(self,portNumber):
         self.port = 0
         self.bot = 0
         self.init = False
         self.portNumber = portNumber
 
+    #Start the robot
     def start(self):
         self.port = "/dev/" + self.portNumber  # where is your serial port?
         self.bot = Create2(self.port)
@@ -17,16 +21,24 @@ class Irobot():
         self.init = True
         print("Robot started")
 
+    #Stop the robot
     def stop(self):
         if(self.init):
             self.bot.drive_stop()
+    
+    #Close the robot
+    def close(self):
+        if(self.init):
+            self.init = false
+            print("Robot is now off")
 
+    #Turn around 180 degrees clockwise
     def turn_backwards_CW(self):
         if(self.init):
             self.bot.drive_direct(-360,360)  
             time.sleep(1)
 
-
+    #Turn around 180 degrees counter clockwise
     def turn_backwards_CCW(self):
         if(self.init):
             self.bot.drive_direct(360,-360)  
@@ -36,15 +48,15 @@ class Irobot():
     def Drive_forward(self, distance):
         if(self.init):
             self.bot.drive_direct(100,100)
-            #For motoer speed of 100, 100 -> 12 cm/s
-            time.sleep(distance/0.12) # modify 2 later
+            #For motor speed of 100, 100 -> 100 mm/s = 10 cm/s
+            time.sleep(distance/0.1) # Distance is in meters, time = distance / speed
 
     #Drive backward by a specified distance
     def Drive_backward(self, distance):
         if(self.init):
             self.bot.drive_direct(-100,-100)
-            #if 1s = 0.5m, then t = 2*d
-            time.sleep(distance/0.12) # distance is in meters
+            #For motor speed of -100 -100 -> 100 mm/s = 10 cm/s
+            time.sleep(distance/0.1) # distance is in meters, time = distance / speed
 
     #Turn left 90 degrees (CW)   
     def Turn_left(self):
