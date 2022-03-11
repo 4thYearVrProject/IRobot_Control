@@ -6,10 +6,10 @@ def main():
     robot.start()
     
     while robot.init == True:
-        # Movement controls
+        # Movement input
         direction = input("Please enter direction (options include 'forward', 'backward', 'left', right', 'left180' and 'right180', 'Exit')\n-->")
         
-
+        #Movement controls based on input
         if direction == "forward":
             distance = float(input("Please enter a distance to travel in meters \n-->"))
             robot.Drive_forward(distance)
