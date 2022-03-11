@@ -47,4 +47,19 @@ Replace the "ttyUSB0" in main.py with your serial port address
 robot = irobotAPI.Irobot("your_address")
 ```
 
+##Usage
+Ensure that the device is fully charged, and that the USB is plugged into the computer running the linux machine.
+
+Run:
+```python
+python3 main.py
+```
+
+When prompted, respond to the prompts accordingly with the direction and distance information.
+
+For full implemntation, this code needs to be updated to accept input over wi-fi from the headset device.
+
+##Reset
+If the iRobot device does not respond to commands, reset the device by pressing the "SPOT" and "DOCK" buttons at the same time and holding for a few seconds.
+
 
