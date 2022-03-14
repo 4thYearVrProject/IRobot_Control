@@ -1,11 +1,25 @@
 import irobotAPI
 import sys
 
+from flask import Flask, request
+import json
+
+#app is for listening locally for JSON objects
+app = Flask(__name__)
+
+@app.route('/move', methods = ['POST'])
+def movement():
+    data = request.get_json()
+    print(data)
+    return json.dumps({"result":"OK"})
+
 def main():
     robot = irobotAPI.Irobot("ttyUSB0")
     robot.start()
+    #app.run(port=5000) #To listen on port 5000
     
     while robot.init == True:
+        app.run(port=5000)
         # Movement input
         direction = input("Please enter direction (options include 'forward', 'backward', 'left', right', 'left180' and 'right180', 'Exit')\n-->")
         
