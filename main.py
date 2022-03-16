@@ -4,9 +4,10 @@ import socket
 import json
 
 def main():
-    #UDP socket on port 4444
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    #TCP socket on port 4444
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind(('', 4444))
+    server_socket.listen(1)
 
     robot = irobotAPI.Irobot("ttyUSB0")
     robot.start()
@@ -16,8 +17,9 @@ def main():
         # Movement input
         # direction = input("Please enter direction (options include 'forward', 'backward', 'left', right', 'left180' and 'right180', 'Exit')\n-->")
         
-        message, address = server_socket.recvfrom(1024)
-        print(message) #what did we receive
+        conn, addr = server_socket.accept()
+        message = conn.recv(1024)
+        print(message.decode("utf-8")) #what did we receive
         recv = json.loads(message.decode("utf-8")) #convert byte to string
         direction = recv["direction"]
 
