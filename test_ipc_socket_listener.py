@@ -2,7 +2,7 @@ import socket
 import os
 import sys
 
-socket_path = "/home/ifiok/school/4thYearProject/IRobot_Control/ipc/ipc.sock"
+socket_path = "/home/ifiok/school/Final_project/IRobot_Control/ipc/ipc.sock"
 
 try:
     os.unlink(socket_path)

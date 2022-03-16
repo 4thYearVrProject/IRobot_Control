@@ -1,6 +1,6 @@
 import socket
 
-socket_path = "/home/ifiok/school/4thYearProject/IRobot_Control/ipc/ipc.sock"
+socket_path = "/home/ifiok/school/Final_project/IRobot_Control/ipc/ipc.sock"
 
 s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
 s.connect(socket_path)
