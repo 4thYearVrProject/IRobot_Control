@@ -49,23 +49,25 @@ class Irobot():
         if(self.init):
             self.bot.drive_direct(100,100)
             #For motor speed of 100, 100 -> 100 mm/s = 10 cm/s
-            time.sleep(distance/0.1) # Distance is in meters, time = distance / speed
+            # time.sleep(distance/0.1) # Distance is in meters, time = distance / speed
+            time.sleep(distance/10)
 
     #Drive backward by a specified distance
     def Drive_backward(self, distance):
         if(self.init):
             self.bot.drive_direct(-100,-100)
             #For motor speed of -100 -100 -> 100 mm/s = 10 cm/s
-            time.sleep(distance/0.1) # distance is in meters, time = distance / speed
+            # time.sleep(distance/0.1) # distance is in meters, time = distance / speed
+            time.sleep(distance/10)
 
     #Turn left 90 degrees (CW)   
-    def Turn_left(self):
+    def Turn_left(self, angle):
         if(self.init):
-            self.bot.drive_direct(180,-180)
+            self.bot.drive_direct(angle*2, -(angle*2))
             time.sleep(1)
 
     #Turn right 90 degrees (CCW)    
-    def Turn_right(self):
+    def Turn_right(self, angle):
         if(self.init):
-            self.bot.drive_direct(-180,180)
+            self.bot.drive_direct(-(angle*2)),angle*2)
             time.sleep(1)
