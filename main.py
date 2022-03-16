@@ -17,6 +17,7 @@ def main():
         # direction = input("Please enter direction (options include 'forward', 'backward', 'left', right', 'left180' and 'right180', 'Exit')\n-->")
         
         message, address = server_socket.recvfrom(1024)
+        print(message) #what did we receive
         recv = json.loads(message.decode("utf-8")) #convert byte to string
         direction = recv["direction"]
 
