@@ -69,5 +69,5 @@ class Irobot():
     #Turn right 90 degrees (CCW)    
     def Turn_right(self, angle):
         if(self.init):
-            self.bot.drive_direct(-(angle*2)),angle*2)
+            self.bot.drive_direct(-(angle*2),angle*2)
             time.sleep(1)
