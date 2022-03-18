@@ -28,9 +28,8 @@ def main():
         print("Direction is: ", direction)
         print("Distance is: ", distance)
 
-        #Movement controls based on input
+        #Movement controls based on input can be forwards, backwards, left or right
         if direction == "forwards":
-
             robot.Drive_forward(distance)
             robot.stop()
         elif direction == "backwards":
@@ -42,7 +41,6 @@ def main():
         elif direction == "right":
             robot.Turn_right(distance)
             robot.stop()
-
         else:
             print("Invalid direction, try again \n")
             # msg = b'Invalid message'
