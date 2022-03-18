@@ -52,11 +52,11 @@ class Irobot():
     #Turn left by specific degrees (CW)   
     def Turn_left(self, angle):
         if(self.init):
-            self.bot.drive_direct(angle*2, -(angle*2))
-            time.sleep(1)
+            self.bot.drive_direct(100, -100)
+            time.sleep(angle/38.2)
 
     #Turn right by specific degrees degrees (CCW)    
     def Turn_right(self, angle):
         if(self.init):
-            self.bot.drive_direct(-(angle*2),angle*2)
-            time.sleep(1)
+            self.bot.drive_direct(-100,100)
+            time.sleep(angle/38.2)
