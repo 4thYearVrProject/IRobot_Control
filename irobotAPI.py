@@ -32,17 +32,6 @@ class Irobot():
             self.init = false
             print("Robot is now off")
 
-    #Turn around 180 degrees clockwise
-    def turn_backwards_CW(self):
-        if(self.init):
-            self.bot.drive_direct(-360,360)  
-            time.sleep(1)
-
-    #Turn around 180 degrees counter clockwise
-    def turn_backwards_CCW(self):
-        if(self.init):
-            self.bot.drive_direct(360,-360)  
-            time.sleep(1)
 
     #Drive forward by a specified distance
     def Drive_forward(self, distance):
@@ -60,13 +49,13 @@ class Irobot():
             # time.sleep(distance/0.1) # distance is in meters, time = distance / speed
             time.sleep(distance/10)
 
-    #Turn left 90 degrees (CW)   
+    #Turn left by specific degrees (CW)   
     def Turn_left(self, angle):
         if(self.init):
             self.bot.drive_direct(angle*2, -(angle*2))
             time.sleep(1)
 
-    #Turn right 90 degrees (CCW)    
+    #Turn right by specific degrees degrees (CCW)    
     def Turn_right(self, angle):
         if(self.init):
             self.bot.drive_direct(-(angle*2),angle*2)
