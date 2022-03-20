@@ -25,21 +25,29 @@ def main():
         command = recv["command"]
         direction = command["direction"]
         distance = command["distance"]
+
+        distanceF = 10
         print("Direction is: ", direction)
         print("Distance is: ", distance)
 
         #Movement controls based on input can be forwards, backwards, left or right
         if direction == "forwards":
             robot.Drive_forward(distance)
-            robot.stop()
+            if distance != 0:
+                robot.stop()
         elif direction == "backwards":
-            robot.Drive_forward(distance)
-            robot.stop()
+            robot.Drive_backward(distance)
+            if distance != 0:
+                robot.stop()
         elif direction == "left":
             robot.Turn_left(distance)
-            robot.stop()
+            if distance != 0:
+                robot.stop()
         elif direction == "right":
             robot.Turn_right(distance)
+            if distance != 0:
+                robot.stop()
+        elif direction == 'stop':
             robot.stop()
         else:
             print("Invalid direction, try again \n")

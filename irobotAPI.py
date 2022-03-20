@@ -49,13 +49,13 @@ class Irobot():
             # time.sleep(distance/0.1) # distance is in meters, time = distance / speed
             time.sleep(distance/10)
 
-    #Turn left by specific degrees (CW)   
+    #Turn left by specific degrees (CCW)   
     def Turn_left(self, angle):
         if(self.init):
             self.bot.drive_direct(100, -100)
             time.sleep(angle/54)
 
-    #Turn right by specific degrees degrees (CCW)    
+    #Turn right by specific degrees degrees (CW)    
     def Turn_right(self, angle):
         if(self.init):
             self.bot.drive_direct(-100,100)
