@@ -1,40 +1,58 @@
 import irobotAPI
 import sys
+import socket
+import json
 
 def main():
+    #UDP socket on port 4444
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    server_socket.bind(('', 4444))
+
     robot = irobotAPI.Irobot("ttyUSB0")
     robot.start()
+
     
     while robot.init == True:
+    #while True:
         # Movement input
-        direction = input("Please enter direction (options include 'forward', 'backward', 'left', right', 'left180' and 'right180', 'Exit')\n-->")
+        # direction = input("Please enter direction (options include 'forward', 'backward', 'left', right', 'left180' and 'right180', 'Exit')\n-->")
         
-        #Movement controls based on input
-        if direction == "forward":
-            distance = float(input("Please enter a distance to travel in meters \n-->"))
+        message, address = server_socket.recvfrom(1024)
+        # print(message.decode("utf-8"))
+
+        recv = json.loads(message.decode("utf-8")) #convert byte to string
+        print(recv)
+        command = recv["command"]
+        direction = command["direction"]
+        distance = command["distance"]
+
+        distanceF = 10
+        print("Direction is: ", direction)
+        print("Distance is: ", distance)
+
+        #Movement controls based on input can be forwards, backwards, left or right
+        if direction == "forwards":
             robot.Drive_forward(distance)
-            robot.stop()
-        elif direction == "backward":
-            distance = float(input("Please enter a distance to travel in meters \n-->"))
+            if distance != 0:
+                robot.stop()
+        elif direction == "backwards":
             robot.Drive_backward(distance)
-            robot.stop()
+            if distance != 0:
+                robot.stop()
         elif direction == "left":
-            robot.Turn_left()
-            robot.stop()
+            robot.Turn_left(distance)
+            if distance != 0:
+                robot.stop()
         elif direction == "right":
-            robot.Turn_right()
+            robot.Turn_right(distance)
+            if distance != 0:
+                robot.stop()
+        elif direction == 'stop':
             robot.stop()
-        elif direction == "left180":
-            robot.turn_backwards_CW()
-            robot.stop()
-        elif direction == "right180":
-            robot.turn_backwards_CCW()
-            robot.stop()
-        elif direction == "Exit":
-            robot.close()
-            sys.exit()
         else:
             print("Invalid direction, try again \n")
+            # msg = b'Invalid message'
+            # server_socket.sendto(msg, address)
     
 
 if __name__ == "__main__":
