@@ -14,7 +14,6 @@ def main():
     
     while robot.init == True:       
         message, address = server_socket.recvfrom(1024)
-        # print(message.decode("utf-8"))
 
         recv = json.loads(message.decode("utf-8")) #convert byte to string
         print(recv)
