@@ -12,11 +12,7 @@ def main():
     robot.start()
 
     
-    while robot.init == True:
-    #while True:
-        # Movement input
-        # direction = input("Please enter direction (options include 'forward', 'backward', 'left', right', 'left180' and 'right180', 'Exit')\n-->")
-        
+    while robot.init == True:       
         message, address = server_socket.recvfrom(1024)
         # print(message.decode("utf-8"))
 
@@ -26,7 +22,6 @@ def main():
         direction = command["direction"]
         distance = command["distance"]
 
-        distanceF = 10
         print("Direction is: ", direction)
         print("Distance is: ", distance)
 
@@ -51,8 +46,6 @@ def main():
             robot.stop()
         else:
             print("Invalid direction, try again \n")
-            # msg = b'Invalid message'
-            # server_socket.sendto(msg, address)
     
 
 if __name__ == "__main__":
