@@ -7,7 +7,7 @@ def main():
     #UDP socket on port 4444
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     server_socket.bind(('', 4444))
-
+    #initialize robot object
     robot = irobotAPI.Irobot("ttyUSB0")
     robot.start()
 
