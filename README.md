@@ -9,7 +9,7 @@ Note that in this project, the device runs in "full" mode, so be careful to ensu
 
 ## Installation
 
-Ensure you have Python 3 installed on your Linux machine (Ubuntu and Kali Linux recommended). For this project, Python 3.9.10 was used. 
+Ensure you have Python 3 installed on your Linux machine (Ubuntu or Kali Linux recommended). For this project, Python 3.9.10 was used. 
 To check your Python version, in a command terminal run:
 
 ```bash
@@ -23,6 +23,7 @@ Install the pycreate 2 library
 ```bash
 pip install pycreate2
 ```
+Note: May need to use pip3 on older VM's
 Pycreate2 library details can be found: 
 
 https://github.com/MomsFriendlyRobotCompany/pycreate2/tree/master/examples
