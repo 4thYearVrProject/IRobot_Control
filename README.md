@@ -24,6 +24,7 @@ Install the pycreate 2 library
 pip install pycreate2
 ```
 Note: May need to use pip3 on older VM's
+
 Pycreate2 library details can be found: 
 
 https://github.com/MomsFriendlyRobotCompany/pycreate2/tree/master/examples
