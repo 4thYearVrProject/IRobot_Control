@@ -7,7 +7,7 @@ The purpose of this python script is to allow for functional movement control of
 
 Note that in this project, the device runs in "full" mode, so be careful to ensure that it does not drive off cliffs or bump into hard surfaces.
 
-##Installation
+## Installation
 
 Ensure you have Python 3 installed on your Linux machine (Ubuntu and Kali Linux recommended). For this project, Python 3.9.10 was used. 
 To check your Python version, in a command terminal run:
